@@ -71,6 +71,7 @@ fn eval_op(op: &str, lhs: i32, rhs: i32) -> i32 {
         "-" => lhs - rhs,
         "*" => lhs * rhs,
         "/" => lhs / rhs,
+        "%" => lhs % rhs,
         _ => unreachable!(),
     }
 }
