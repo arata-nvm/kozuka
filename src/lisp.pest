@@ -1,0 +1,7 @@
+digit = { '0'..'9' }
+number = { digit+ }
+operator = { "+" | "-" | "*" | "/" }
+expr = { number | "(" ~ operator ~ expr+ ~ ")" }
+program = { operator ~ expr+ }
+
+WHITESPACE = _{ " " }
