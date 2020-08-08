@@ -31,7 +31,10 @@ fn main() {
 
 fn exec(line: &str) {
     match LispParser::parse(Rule::expr, &line) {
-        Ok(mut pairs) => eval(&mut pairs),
+        Ok(mut pairs) => {
+            let value = eval(&mut pairs);
+            println!("{}", value);
+        }
         Err(err) => {
             println!("Failed to parse program: {}", err);
             return;
@@ -39,9 +42,8 @@ fn exec(line: &str) {
     }
 }
 
-fn eval(pairs: &mut Pairs<Rule>) {
-    let value = eval_expr(pairs.next().unwrap());
-    println!("{}", value);
+fn eval(pairs: &mut Pairs<Rule>) -> i32 {
+    eval_expr(pairs.next().unwrap())
 }
 
 fn eval_expr(pair: Pair<Rule>) -> i32 {
