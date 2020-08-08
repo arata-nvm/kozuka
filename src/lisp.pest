@@ -1,6 +1,6 @@
 digit = { '0'..'9' }
 number = @{ digit+ }
-operator = { "+" | "-" | "*" | "/" | "%" | "^" }
+operator = { "+" | "-" | "*" | "/" | "%" | "^" | "min" | "max" }
 expr = { number | "(" ~ operator ~ expr+ ~ ")" }
 
 WHITESPACE = _{ " " }

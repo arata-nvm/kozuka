@@ -73,6 +73,8 @@ fn eval_op(op: &str, lhs: i32, rhs: i32) -> i32 {
         "/" => lhs / rhs,
         "%" => lhs % rhs,
         "^" => lhs.pow(rhs as u32), // TODO
+        "min" => lhs.min(rhs),
+        "max" => lhs.max(rhs),
         _ => unreachable!(),
     }
 }
