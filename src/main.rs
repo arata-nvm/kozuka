@@ -53,6 +53,11 @@ fn eval_expr(pair: Pair<Rule>) -> i32 {
             let op = first_pair.as_str();
             let mut x = eval_expr(iter.next().unwrap());
 
+            // unary minus operator
+            if op == "-" && iter.peek() == None {
+                return -x;
+            }
+
             loop {
                 match iter.next() {
                     Some(expr) => x = eval_op(op, x, eval_expr(expr)),
