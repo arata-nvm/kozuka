@@ -71,7 +71,7 @@ fn eval_expr(pair: Pair<Rule>) -> Result<i32, LispError> {
             Ok(num) => Ok(num),
             Err(_) => Err(LispError::BadNum),
         },
-        Rule::operator => {
+        Rule::symbol => {
             let op = first_pair.as_str();
             let mut x = eval_expr(iter.next().unwrap())?;
 
